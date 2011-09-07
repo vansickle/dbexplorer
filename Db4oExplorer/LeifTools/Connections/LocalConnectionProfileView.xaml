@@ -1,0 +1,23 @@
+<UserControl x:Class="Db4oExplorer.Connections.LocalConnectionProfileView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="146" Width="350">
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		
+		<Label Margin="0,0,30,0" Grid.Row="0" Grid.Column="0">Path</Label>
+		<TextBox Margin="5" Grid.Row="0" Grid.Column="1" Text="{Binding Path}"></TextBox>
+		<Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="5,5" Padding="3,0" Name="browse" Click="browse_Click">Browse</Button>
+		
+		<Label Grid.Row="2" Grid.Column="0">Name</Label>
+		<TextBox Margin="5" Grid.Row="2" Grid.Column="1" Text="{Binding Name}"></TextBox>
+	</Grid>
+</UserControl>

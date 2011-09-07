@@ -1,0 +1,1 @@
+﻿This library intended for create very basic utils and can reference ONLY System.*  assemblies, because it can be used by domain classes.

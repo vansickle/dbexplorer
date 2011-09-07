@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6782704F-E93C-4C73-88D7-0EF28AD90274}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Db4oExplorer.Test</RootNamespace>
+    <AssemblyName>Db4oExplorer.Test</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Db4objects.Db4o, Version=7.4.68.12069, Culture=neutral, PublicKeyToken=6199cd4f203aa8eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\db4o\Db4objects.Db4o.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\ironpython\Microsoft.Scripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.0.8332, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\testing\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connection\ConnectionProfileRepositoryTest.cs" />
+    <Compile Include="Connection\LocalConnectionProfileViewTest.cs" />
+    <Compile Include="Connection\RemoteConnectionProfileViewTest.cs" />
+    <Compile Include="Db4oLocalConnectionStub.cs" />
+    <Compile Include="Db4oStoredClassStub.cs" />
+    <Compile Include="Db4o\Db4oLocalConnectionTest.cs" />
+    <Compile Include="DbExplorerTest.cs" />
+    <Compile Include="Domain\Db4oStoredClassTest.cs" />
+    <Compile Include="Export\SqlExporterTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryTool\QueryToolViewTest.cs" />
+    <Compile Include="StoredClass\StoredClassDataViewColumnGenerationTest.cs" />
+    <Compile Include="StoredClass\StoredClassDataViewTest.cs" />
+    <Compile Include="UI\MainWindowTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\commons.wpf\Commons.UI.WPF.TestUtils\Commons.UI.WPF.TestUtils.csproj">
+      <Project>{D96455D0-8DA9-4176-9ED4-DC5DD54E944D}</Project>
+      <Name>Commons.UI.WPF.TestUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\commons.wpf\Commons.UI.WPF\Commons.UI.WPF.csproj">
+      <Project>{FD230FD5-1831-406D-8BAD-45F663092DA4}</Project>
+      <Name>Commons.UI.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\commons\Commons.TestUtils\Commons.TestUtils.csproj">
+      <Project>{1B53A298-C102-4E9C-B1B9-0BF53808CCF0}</Project>
+      <Name>Commons.TestUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\commons\Commons.Utils\Commons.Utils.csproj">
+      <Project>{B7AFA1B3-6DD4-4F2C-9532-1A9C841712C8}</Project>
+      <Name>Commons.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\commons\Commons.UI.LayoutDataStore\Commons.UI.LayoutDataStore.csproj">
+      <Project>{389E2FF5-F851-4AC0-AFEB-F38AB7F1FC0E}</Project>
+      <Name>Commons.UI.LayoutDataStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons.Data\Commons.Data.DemoData\Commons.Data.DemoData.csproj">
+      <Project>{58D0498A-83EE-470D-B129-5963A98D510F}</Project>
+      <Name>Commons.Data.DemoData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Db4oExplorer\Db4oExplorer.csproj">
+      <Project>{C06A0B2E-6472-479C-A3BB-58EF9843B349}</Project>
+      <Name>Db4oExplorer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LeifTools\LeifTools.csproj">
+      <Project>{1C366D62-3A50-4252-910D-9086157EA97C}</Project>
+      <Name>LeifTools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="demo.dbo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="log.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

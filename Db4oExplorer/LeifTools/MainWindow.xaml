@@ -1,0 +1,39 @@
+<SP:AbstractMainWindow x:Class="Db4oExplorer.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:SP="clr-namespace:Commons.UI.WPF;assembly=Commons.UI.WPF"
+    xmlns:Controls="clr-namespace:Commons.UI.WPF.Controls;assembly=Commons.UI.WPF"
+    xmlns:Markup="clr-namespace:Commons.UI.WPF.Controls.Markup;assembly=Commons.UI.WPF"
+    xmlns:TabControl="clr-namespace:Commons.UI.WPF.Controls.TabControl;assembly=Commons.UI.WPF"
+    xmlns:EventWiring="clr-namespace:Commons.UI.WPF.EventWiring;assembly=Commons.UI.WPF"
+    xmlns:Db4oExplorer="clr-namespace:Db4oExplorer"
+    xmlns:Explorer="clr-namespace:Db4oExplorer.Explorer"
+    xmlns:Common="clr-namespace:Commons.UI.WPF.Common;assembly=Commons.UI.WPF"
+    Title="Db4oExplorer" Height="366" Width="820" Icon="Images/logo.png">
+	<Window.Resources>
+		<Common:NotImplementedCommand x:Key="notImplementedCommand"></Common:NotImplementedCommand>
+	</Window.Resources>
+	<DockPanel Margin="0" Name="mainDockPanel">
+		<Menu Name="menu1" Height="22" HorizontalAlignment="Stretch" Margin="0" DockPanel.Dock="Top">
+			<MenuItem Header="Connection">
+				<MenuItem Header="Add new connection" Icon="{Markup:Image Images/database_add.png}" Name="addNewConnectionMenuItem" Click="addNewConnectionMenuItem_Click" />
+			</MenuItem>
+			<MenuItem Header="Tools">
+				<MenuItem Header="Query tool" Name="queryToolMenuItem" Click="queryToolMenuItem_Click"></MenuItem>
+				<MenuItem Header="Export data to SQL" Name="exportDataToSqlMenuItem" Click="exportDataToSqlMenuItem_Click"></MenuItem>
+				<MenuItem Header="Export data to CSV" Name="exportDataToCsvMenuItem" Click="exportDataToCsvMenuItem_Click"></MenuItem>
+				<MenuItem Header="Export data to XML" Command="{StaticResource notImplementedCommand}"></MenuItem>
+				<MenuItem Header="Import data from SQL" Command="{StaticResource notImplementedCommand}"></MenuItem>
+				<MenuItem Header="Import data from XML" Command="{StaticResource notImplementedCommand}"></MenuItem>
+			</MenuItem>
+			<MenuItem Header="Help">
+				<MenuItem Header="About" Name="aboutMenuItem" Icon="{Markup:Image Images/about.png}" Click="aboutMenuItem_Click" />
+			</MenuItem>
+		</Menu>
+		<Explorer:DbExplorer DockPanel.Dock="Left" Width="200" x:Name="explorer" x:FieldModifier="public"></Explorer:DbExplorer>
+		<Controls:DockPanelSplitter DockPanel.Dock="Left" Width="4"></Controls:DockPanelSplitter>
+		<TabControl:ExtendedTabControl Name="tabPane" AllowAddNew="False" TabItemMinWidth="150">
+			<TabControl:ExtendedTabItem Header="Home" Icon="{Markup:Image application_home, Height=16, Width=16, Margin = '5,0,0,0'}"></TabControl:ExtendedTabItem>
+		</TabControl:ExtendedTabControl>
+	</DockPanel>
+</SP:AbstractMainWindow>

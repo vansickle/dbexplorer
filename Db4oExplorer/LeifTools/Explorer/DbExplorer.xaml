@@ -1,0 +1,116 @@
+<UserControl x:Class="Db4oExplorer.Explorer.DbExplorer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Markup="clr-namespace:Commons.UI.WPF.Controls.Markup;assembly=Commons.UI.WPF"
+    xmlns:Db4oExplorer="clr-namespace:Db4oExplorer"
+    xmlns:Explorer="clr-namespace:Db4oExplorer.Explorer"
+    xmlns:Controls="clr-namespace:Commons.UI.WPF.Controls;assembly=Commons.UI.WPF"
+    xmlns:Connections="clr-namespace:Db4oExplorer.Connections"
+    xmlns:Converters="clr-namespace:Commons.UI.WPF.Converters;assembly=Commons.UI.WPF">
+	<UserControl.Resources>
+		<Explorer:StoredClassSortConverter x:Key="storedClassSortConverter"></Explorer:StoredClassSortConverter>
+		<Converters:ImageSourceConverter x:Key="imageSourceConverter"></Converters:ImageSourceConverter>
+		<DataTemplate x:Key="fieldItemTemplate">
+			<StackPanel Orientation="Horizontal" ToolTip="{Markup:QuickTip TitlePath=Name, BodyPath=DataType, BodyFormat='Data type: {0}'}">
+				<StackPanel.ContextMenu>
+					<ContextMenu>
+						<MenuItem Header="Rename field" Name="renameFieldMenuItem" Click="renameFieldMenuItem_Click"></MenuItem>
+					</ContextMenu>
+				</StackPanel.ContextMenu>
+				<Image Source="../Images/field.png"></Image>
+				<TextBlock Padding="2,0" Text="{Binding Name}"></TextBlock>
+			</StackPanel>
+		</DataTemplate>
+		<HierarchicalDataTemplate ItemsSource="{Binding Fields}" x:Key="classItemTemplate" ItemTemplate="{StaticResource fieldItemTemplate}">
+			<StackPanel x:Name="classStackPanel" Orientation="Horizontal" MouseDown="classStackPanel_MouseDown">
+				<StackPanel.ContextMenu>
+					<ContextMenu>
+						<MenuItem Header="Show data" Name="showDataMenuItem" Click="showDataMenuItem_Click" Icon="{Markup:Image show_data}"></MenuItem>
+						<MenuItem Header="Show fields" Name="showFieldsMenuItem" Click="showFieldsMenuItem_Click"></MenuItem>
+						<MenuItem Header="Show query tool" Name="showQueryToolMenuItem" Click="showQueryToolMenuItem_Click"></MenuItem>
+						<Separator></Separator>
+						<MenuItem Header="Show pure name" ToolTip="Name without namespace, packages n etc., just name" 
+													  Name="switchClassNameType" Click="switchClassNameType_Click"></MenuItem>
+						<Separator></Separator>
+						<MenuItem Header="Rename class" Name="renameClassMenuItem" Click="renameClassMenuItem_Click"></MenuItem>
+					</ContextMenu>
+				</StackPanel.ContextMenu>
+				<StackPanel.ToolTip>
+					<ToolTip>
+						<TextBlock Text="{Binding Name}"></TextBlock>
+					</ToolTip>
+				</StackPanel.ToolTip>
+				<Image Source="../Images/class.png"></Image>
+				<TextBlock Padding="2,0" Text="{Binding Name}" Name="classItemTextBlock"></TextBlock>
+			</StackPanel>
+		</HierarchicalDataTemplate>
+		<HierarchicalDataTemplate DataType="{x:Type Explorer:ConnectionViewModel}" ItemsSource="{Binding Objects}" ItemTemplate="{StaticResource classItemTemplate}" x:Key="connectionTemplate">
+			<StackPanel x:Name="connectionStackPanel" Orientation="Horizontal" MouseDown="connectionStackPanel_MouseDown">
+				<StackPanel.ContextMenu>
+					<ContextMenu>
+						<MenuItem Icon="{Markup:Image ../Images/connect.png}" Command="{Binding ConnectCommand}" Header="Connect"></MenuItem>
+						<MenuItem Icon="{Markup:Image ../Images/disconnect.png}" Command="{Binding DisconnectCommand}" Header="Disconnect"></MenuItem>
+						<MenuItem Icon="{Markup:Image ../Images/database_reload.png}" Command="{Binding ReloadCommand}" Header="Reload objects"></MenuItem> 
+						<MenuItem Command="{Binding DefragmentCommand}" Header="Defragment"></MenuItem> 
+						<Separator></Separator>
+						<MenuItem Header="Edit connection" Icon="{Markup:Image ../Images/database_edit.png}" Name="editConnectionMenuItem" Click="editConnectionMenuItem_Click"></MenuItem>
+						<!--IMPROVE make call event via attached properties, like Action="ConnectionDeleteFired" -->
+						<MenuItem Header="Delete connection" Icon="{Markup:Image database_delete}" Name="deleteConnectionMenuItem" Click="deleteConnectionMenuItem_Click"></MenuItem>
+						<Separator></Separator>
+						<MenuItem Header="Show statistics" Name="showStatisticsMenuItem" Click="showStatisticsMenuItem_Click"></MenuItem>
+						<Separator></Separator>
+						<MenuItem Header="Create new stored class" Name="createNewStoredClassMenuItem" Click="createNewStoredClassMenuItem_Click"></MenuItem>
+					</ContextMenu>
+				</StackPanel.ContextMenu>
+				<StackPanel.ToolTip>
+					<ToolTip>
+						<StackPanel>
+							<TextBlock Text="{Binding Path}"></TextBlock>
+						</StackPanel>
+					</ToolTip>
+				</StackPanel.ToolTip>
+				<Image Source="{Binding Icon, Converter={StaticResource imageSourceConverter}}"></Image>
+				<TextBlock Padding="2,0" Text="{Binding Name}"></TextBlock>
+			</StackPanel>
+		</HierarchicalDataTemplate>
+	</UserControl.Resources>
+	<Border BorderThickness="1" BorderBrush="LightGray">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="*"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid Visibility="Collapsed" x:Name="buttonPanel">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"></ColumnDefinition>
+					<ColumnDefinition Width="Auto"></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+				<Controls:WatermarkTextBox Grid.Column="0" WatermarkText="Filter" Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" x:Name="filterBox"></Controls:WatermarkTextBox>	
+				<Menu Grid.Column="1">
+					<MenuItem Header="Config">
+						<MenuItem>
+							<MenuItem.Header>
+								<StackPanel Orientation="Horizontal">
+									<TextBlock VerticalAlignment="Center" Width="55">Group by: </TextBlock>
+									<ComboBox>
+										<ComboBoxItem IsSelected="True">none</ComboBoxItem>
+										<ComboBoxItem>Namespace (one line)</ComboBoxItem>
+										<ComboBoxItem>Namespace (hierachrical)</ComboBoxItem>
+										<ComboBoxItem>Assembly</ComboBoxItem>
+									</ComboBox>
+								</StackPanel>
+							</MenuItem.Header>
+						</MenuItem>
+						<MenuItem Header="Filters" x:Name="filtersMenu">
+						</MenuItem>
+					</MenuItem>
+				</Menu>
+			</Grid>
+			<Button Height="6" Width="40" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+					VerticalAlignment="Center" Padding="0" Margin="0" HorizontalAlignment="Right" Content="..." x:Name="collapseButton" Click="collapseButton_Click"></Button>
+			<TreeView Background="Transparent" AllowDrop="True" Drop="treeView_Drop" ItemsSource="{Binding Connections}" BorderThickness="0" Grid.Row="2" Name="treeView" ItemTemplate="{StaticResource connectionTemplate}">
+			</TreeView>
+		</Grid>
+	</Border>	
+</UserControl>

@@ -1,0 +1,16 @@
+<UserControl x:Class="Db4oExplorer.AboutView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="250" Width="433">
+    <Grid>
+		<Label Margin="35,12,35,0" Name="label1" FontSize="48" Height="72" VerticalAlignment="Top" HorizontalAlignment="Center">Db4oExplorer</Label>
+		<Label Margin="88,90,79,0" FontSize="14" Height="28" VerticalAlignment="Top" HorizontalAlignment="Center" >Copyright (c) VHQL 2008-2010</Label>
+		<TextBlock TextWrapping="Wrap" Margin="64,0,55,27" FontSize="12"  Height="60" VerticalAlignment="Bottom">
+			Some icons by 
+				Mark James /famfamfam.com/,
+				David Vignoni /icon-king.com/,
+				Everaldo Coelho /everaldo.com/, 
+				icojoy.com
+		</TextBlock>
+	</Grid>
+</UserControl>

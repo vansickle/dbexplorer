@@ -1,0 +1,23 @@
+<UserControl x:Class="LeifTools.QueryTool.QueryToolView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:StoredClass="clr-namespace:Db4oExplorer.StoredClass" xmlns:AvalonEdit="clr-namespace:ICSharpCode.AvalonEdit;assembly=ICSharpCode.AvalonEdit" Height="418" Width="659">
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="43" />
+			<RowDefinition Height="89.964*" MinHeight="90" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="272.502*" />
+		</Grid.RowDefinitions>
+		<StoredClass:StoredClassDataView Width="Auto" Height="Auto" Margin="10,10,10,10" x:Name="dataView" Grid.Row="3"></StoredClass:StoredClassDataView>
+		<ComboBox HorizontalAlignment="Left" Margin="10,12,0,6" Name="connectionsComboBox" Width="152" />
+		<Button Margin="0,12,12,6" Name="executeButton" HorizontalAlignment="Right" Width="84" Click="executeButton_Click">Execute</Button>
+		<Button HorizontalAlignment="Left" Margin="168,12,0,6" Name="openButton" Width="84">Open</Button>
+		<Button HorizontalAlignment="Left" Margin="258,12,0,6" Name="saveButton" Width="84">Save</Button>
+		<GridSplitter Grid.Row="2" Margin="0" Name="gridSplitter1" Width="Auto" HorizontalAlignment="Stretch" />
+		<Grid Grid.Row="1" Margin="0,0.714,0,0" Name="grid1">
+			<Border Margin="10,6,10,4.998" BorderThickness="1" BorderBrush="DarkGray">
+				<AvalonEdit:TextEditor Name="queryTextBox" FontFamily="Consolas" FontSize="11pt" ShowLineNumbers="True"></AvalonEdit:TextEditor>
+			</Border>
+		</Grid>
+	</Grid>
+</UserControl>

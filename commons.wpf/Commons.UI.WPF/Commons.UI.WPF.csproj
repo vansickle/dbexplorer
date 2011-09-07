@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FD230FD5-1831-406D-8BAD-45F663092DA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Commons.UI.WPF</RootNamespace>
+    <AssemblyName>Commons.UI.WPF</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=2.0.11.3384, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\logging\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework.Classic">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\wpf\WPFToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractMainWindow.cs" />
+    <Compile Include="BaseErrorHandler.cs" />
+    <Compile Include="Common\ButtonPresser.cs" />
+    <Compile Include="Common\FuncExtensions.cs" />
+    <Compile Include="Controls\DialogLayoutStoreWorkerContainer.cs" />
+    <Compile Include="IErrorHandler.cs" />
+    <Compile Include="Properties\Resources.ru.Designer.cs">
+      <DependentUpon>Resources.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\BrowseParams.cs" />
+    <Compile Include="Services\BrowseResult.cs" />
+    <Compile Include="Services\FileManager.cs" />
+    <Compile Include="Services\IFileManager.cs" />
+    <Compile Include="Services\PreserveWorkingDirectory.cs" />
+    <Compile Include="WM\ControlContainer.cs" />
+    <Compile Include="Common\HourGlass.cs" />
+    <Compile Include="Common\NotImplementedCommand.cs" />
+    <Compile Include="Controls\ImageButton.cs" />
+    <Compile Include="Controls\Markup\ImageExtension.cs" />
+    <Compile Include="Controls\Markup\QuickTipExtension.cs" />
+    <Compile Include="Controls\QuickTip.xaml.cs">
+      <DependentUpon>QuickTip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TabControl\Converters.cs" />
+    <Compile Include="Controls\TabControl\Helper.cs" />
+    <Compile Include="Controls\TabControl\ExtendedTabControl.cs" />
+    <Compile Include="Controls\TabControl\TabEventArgs.cs" />
+    <Compile Include="Controls\TabControl\ExtendedTabItem.cs" />
+    <Compile Include="Controls\TabControl\TabPanel.cs" />
+    <Compile Include="Converters\CheckTypeConverter.cs" />
+    <Compile Include="Converters\DateTimeConverter.cs" />
+    <Compile Include="Converters\ImageSourceConverter.cs" />
+    <Compile Include="Converters\Int32Converter.cs" />
+    <Compile Include="Converters\InvertBoolConverter.cs" />
+    <Compile Include="Converters\PercentConverter.cs" />
+    <Compile Include="Converters\ValueConverterPipeline.cs" />
+    <Compile Include="Controls\DockPanelSplitter.cs" />
+    <Compile Include="Controls\ExtendedComboBox.cs" />
+    <Compile Include="Controls\FilteredListView.cs" />
+    <Compile Include="Controls\OKCancelControlContainer.xaml.cs">
+      <DependentUpon>OKCancelControlContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\QuickSlider.cs" />
+    <Compile Include="Controls\WatermarkTextBox.cs" />
+    <Compile Include="DataGrid\BinaryViewer.xaml.cs">
+      <DependentUpon>BinaryViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataGrid\DataGridBinaryColumn.xaml.cs">
+      <DependentUpon>DataGridBinaryColumn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataGrid\DataGridDateTimeColumn.xaml.cs">
+      <DependentUpon>DataGridDateTimeColumn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataGrid\DataGridUtils.cs" />
+    <Compile Include="DataGrid\IBindableDataGridColumn.xaml.cs" />
+    <Compile Include="EventAggregation\EventAggregator.cs" />
+    <Compile Include="EventAggregation\EventQueue.cs" />
+    <Compile Include="EventAggregation\IEventAggregator.cs" />
+    <Compile Include="EventAggregation\IEventQueue.cs" />
+    <Compile Include="EventWiring\ActionHelper.cs" />
+    <Compile Include="EventWiring\EventFiringHelper.cs" />
+    <Compile Include="EventWiring\StaticWirer.cs" />
+    <Compile Include="EventWiring\Attach.cs" />
+    <Compile Include="EventWiring\Wirer.cs" />
+    <Compile Include="ExtendedApplication.cs" />
+    <Compile Include="IWindowManager.cs" />
+    <Compile Include="Printing\Printer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BrowseFileService.cs" />
+    <Compile Include="Services\IBrowseFileService.cs" />
+    <Compile Include="WindowManager.cs" />
+    <Compile Include="WM\IClosable.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\OKCancelControlContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\QuickTip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataGrid\BinaryViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataGrid\DataGridBinaryColumn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataGrid\DataGridDateTimeColumn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\FilteredListViewGeneric.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ImageButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\QuickSliderGeneric.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\TabControlGeneric.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\newtab.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cancel.png" />
+    <Resource Include="Images\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tab_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\info48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\binary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\commons\Commons.UI.LayoutDataStore\Commons.UI.LayoutDataStore.csproj">
+      <Project>{389E2FF5-F851-4AC0-AFEB-F38AB7F1FC0E}</Project>
+      <Name>Commons.UI.LayoutDataStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Commons.UI.WPF.LayoutDataStore\Commons.UI.WPF.LayoutDataStore.csproj">
+      <Project>{3DEF44D3-0D98-4794-B531-A22F67545BD9}</Project>
+      <Name>Commons.UI.WPF.LayoutDataStore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Commons.ui.wpf.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Win32\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,28 @@
+<Controls:DataGridTemplateColumn x:Class="Commons.UI.WPF.DataGrid.DataGridDateTimeColumn"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit"
+    xmlns:ComponentModel="clr-namespace:System.ComponentModel;assembly=System"
+    xmlns:Converters="clr-namespace:Commons.UI.WPF.Converters">
+	<Controls:DataGridTemplateColumn.CellTemplate>
+		<DataTemplate>
+			<StackPanel Orientation="Horizontal" Margin="2">
+				<TextBlock Text="{Binding [2]}" Margin="0,0,2,0"/>
+				<Image Source="../Images/calendar.png"></Image>
+			</StackPanel>
+<!--			<Controls:DatePicker SelectedDate="{Binding [2], Mode=TwoWay}"></Controls:DatePicker>-->
+		</DataTemplate>
+	</Controls:DataGridTemplateColumn.CellTemplate>
+	<Controls:DataGridTemplateColumn.CellEditingTemplate>
+		<DataTemplate>
+			<DataTemplate.Resources>
+				<Converters:DateTimeConverter x:Key="DateTimeConverter"></Converters:DateTimeConverter>
+			</DataTemplate.Resources>
+			<StackPanel Orientation="Horizontal">
+				<TextBox Text="{Binding [2], Converter={StaticResource DateTimeConverter}, Mode=TwoWay}" Margin="0,0,2,0"></TextBox>
+				<Image Source="../Images/calendar.png"></Image>
+<!--				<Controls:DatePicker SelectedDate="{Binding [2], Mode=TwoWay}" SelectedDateFormat="Long"></Controls:DatePicker>	-->
+			</StackPanel>
+		</DataTemplate>
+	</Controls:DataGridTemplateColumn.CellEditingTemplate>
+</Controls:DataGridTemplateColumn>

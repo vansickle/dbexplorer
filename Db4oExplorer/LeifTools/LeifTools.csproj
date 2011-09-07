@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1C366D62-3A50-4252-910D-9086157EA97C}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LeifTools</RootNamespace>
+    <AssemblyName>LeifTools</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.StringTemplate, Version=3.1.3.6002, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\stringtemplate\Antlr3.StringTemplate.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=2.0.11.3384, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\logging\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit, Version=4.0.0.5048, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\avalonedit\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\ironpython\IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Modules, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\ironpython\IronPython.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\ironpython\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\ironpython\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\ironpython\Microsoft.Scripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting.Debugging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\ironpython\Microsoft.Scripting.Debugging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\ironpython\Microsoft.Scripting.ExtensionAttribute.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\wpf\WPFToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AboutPresenter.cs" />
+    <Compile Include="Common\ArrayHelper.cs" />
+    <Compile Include="Connections\ConnectionPresenter.cs" />
+    <Compile Include="Connections\ConnectionProfileRepository.cs" />
+    <Compile Include="Connections\ConnectionProfileXmlSerializable.cs" />
+    <Compile Include="Errors\FileLockedException.cs" />
+    <Compile Include="Connections\GenericInterfaceXmlSerializer.cs" />
+    <Compile Include="Connections\IConnectionFactory.cs" />
+    <Compile Include="Connections\IConnectionPresenter.cs" />
+    <Compile Include="Connections\IConnectionProfileRepository.cs" />
+    <Compile Include="Connections\IConnectionProfileView.xaml.cs" />
+    <Compile Include="Connections\LocalConnectionProfileView.xaml.cs">
+      <DependentUpon>LocalConnectionProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connections\RemoteConnectionProfileView.xaml.cs">
+      <DependentUpon>RemoteConnectionProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\ConnectionStatus.cs" />
+    <Compile Include="Domain\DbObject.cs" />
+    <Compile Include="Domain\DotNetPureNameParser.cs" />
+    <Compile Include="Domain\Field.cs" />
+    <Compile Include="Domain\IConnection.cs" />
+    <Compile Include="Domain\IConnectionProfile.cs" />
+    <Compile Include="Domain\IRemoteConnection.cs" />
+    <Compile Include="Domain\IStoredClass.cs" />
+    <Compile Include="Domain\LocalConnection.cs" />
+    <Compile Include="Domain\LocalConnectionProfile.cs" />
+    <Compile Include="Domain\NameValue.cs" />
+    <Compile Include="Domain\NameValueList.cs" />
+    <Compile Include="Domain\RemoteConnectionProfile.cs" />
+    <Compile Include="Errors\ErrorHandler.cs" />
+    <Compile Include="Explorer\ConnectCommand.cs" />
+    <Compile Include="Explorer\ConnectionViewModel.cs" />
+    <Compile Include="Explorer\DbExplorer.xaml.cs">
+      <DependentUpon>DbExplorer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Explorer\DefragmentCommand.cs" />
+    <Compile Include="Explorer\DisconnectCommand.cs" />
+    <Compile Include="Explorer\ExplorerViewModel.cs" />
+    <Compile Include="Explorer\Filters\AbstractStoredClassFilter.cs" />
+    <Compile Include="Explorer\Filters\Db4oNamespaceFilter.cs" />
+    <Compile Include="Explorer\Filters\FilterManager.cs" />
+    <Compile Include="Explorer\Filters\IFilterManager.cs" />
+    <Compile Include="Explorer\Filters\IStoredClassFilter.cs" />
+    <Compile Include="Explorer\Filters\SortFilter.cs" />
+    <Compile Include="Explorer\Filters\SystemNamespaceFilter.cs" />
+    <Compile Include="Explorer\ReloadCommand.cs" />
+    <Compile Include="Explorer\StoredClassSortConverter.cs" />
+    <Compile Include="Explorer\StoredClassViewModel.cs" />
+    <Compile Include="Export\AbstractTextExporter.cs" />
+    <Compile Include="Export\AbstractTextExportPresenter.cs" />
+    <Compile Include="Export\CsvExporter.cs" />
+    <Compile Include="Export\CsvExportPresenter.cs" />
+    <Compile Include="Export\ExportResultView.xaml.cs">
+      <DependentUpon>ExportResultView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Export\ITextExporter.cs" />
+    <Compile Include="Export\SqlExporter.cs" />
+    <Compile Include="Export\SqlExportPresenter.cs" />
+    <Compile Include="Fields\FieldListPresenter.cs" />
+    <Compile Include="Fields\FieldPresenter.cs" />
+    <Compile Include="Fields\IFieldListPresenter.cs" />
+    <Compile Include="Fields\IFieldPresenter.cs" />
+    <Compile Include="IMainWindow.cs" />
+    <Compile Include="MainController.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="QueryTool\QueryObject.cs" />
+    <Compile Include="QueryTool\QueryToolPresenter.cs" />
+    <Compile Include="QueryTool\QueryToolPresenterFactory.cs" />
+    <Compile Include="QueryTool\QueryToolView.xaml.cs">
+      <DependentUpon>QueryToolView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Statistics\ConnectionStatisticsPresenter.cs" />
+    <Compile Include="Statistics\IConnectionStatisticsPresenter.cs" />
+    <Compile Include="StoredClass\DataGridDbObjectColumn.xaml.cs" />
+    <Compile Include="StoredClass\IDbObjectFactory.cs" />
+    <Compile Include="StoredClass\IStoredClassDataPresenter.cs" />
+    <Compile Include="StoredClass\IStoredClassPresenter.cs" />
+    <Compile Include="StoredClass\StoredClassDataPresenter.cs" />
+    <Compile Include="StoredClass\StoredClassDataView.xaml.cs">
+      <DependentUpon>StoredClassDataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StoredClass\StoredClassDataViewColumnGenerator.cs" />
+    <Compile Include="StoredClass\StoredClassFieldListView.xaml.cs">
+      <DependentUpon>StoredClassFieldListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StoredClass\StoredClassPresenter.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Export\Templates\DbObjects_to_CSV.st">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Export\Templates\DbObjects_to_SQL.st">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AboutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Connections\LocalConnectionProfileView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Connections\RemoteConnectionProfileView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Explorer\DbExplorer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Export\ExportResultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QueryTool\QueryToolView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StoredClass\StoredClassFieldListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StoredClass\StoredClassDataView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\commons.wpf\Commons.UI.WPF.LayoutDataStore\Commons.UI.WPF.LayoutDataStore.csproj">
+      <Project>{3DEF44D3-0D98-4794-B531-A22F67545BD9}</Project>
+      <Name>Commons.UI.WPF.LayoutDataStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\commons.wpf\Commons.UI.WPF\Commons.UI.WPF.csproj">
+      <Project>{FD230FD5-1831-406D-8BAD-45F663092DA4}</Project>
+      <Name>Commons.UI.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\commons\Commons.UI.LayoutDataStore\Commons.UI.LayoutDataStore.csproj">
+      <Project>{389E2FF5-F851-4AC0-AFEB-F38AB7F1FC0E}</Project>
+      <Name>Commons.UI.LayoutDataStore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\application_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\class.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database_connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database_reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\decline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\disconnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\field.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\line_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\line_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\line_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\line_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\server.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\server_connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\server_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\show_data.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
