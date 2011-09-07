@@ -1,0 +1,7 @@
+Object database management tools
+
+Currently for Db4o http://www.db4o.com/ and NeoDatis http://www.neodatis.org/
+
+!http://vhqlabs.com/Images/db4oexplorer.large.png!
+
+Slightly outdated screencast http://content.screencast.com/users/vansickle/folders/Jing/media/85e2105c-75d4-4743-a48a-27fc73030801/2010-01-15_1941.swf
