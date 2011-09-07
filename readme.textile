@@ -1,6 +1,6 @@
 Object database management tools
 
-Currently for Db4o http://www.db4o.com/ and NeoDatis http://www.neodatis.org/
+Currently for "Db4o":http://www.db4o.com/ and "NeoDatis":http://www.neodatis.org/
 
 !http://vhqlabs.com/Images/db4oexplorer.large.png!
 
